@@ -30,7 +30,14 @@
                             <outlet property="delegate" destination="fKN-7x-QAl" id="w2m-At-MWP"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Yammine To do List" id="ApX-oz-fI9"/>
+                    <navigationItem key="navigationItem" title="Yammine To do List" id="ApX-oz-fI9">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="hsF-e2-hoG">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="addButtonPressed:" destination="fKN-7x-QAl" id="ZuD-NU-xpb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s0w-ym-HaB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -45,6 +52,9 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.1884364298" green="0.28938356160000001" blue="0.4393728596" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
