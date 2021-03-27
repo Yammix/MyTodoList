@@ -10,11 +10,12 @@ import UIKit
 class TodoTableViewController: UITableViewController {
 
     var itemArray = ["item 1","item 2","item 3"]
-    
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+        itemArray = defaults.array(forKey: "TodoListArray") as! [String]
     }
 
     
@@ -25,11 +26,12 @@ class TodoTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TodoItemCell", for: indexPath)
         cell.textLabel?.text = itemArray[indexPath.row]
+        
         return cell
     }
    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(itemArray[indexPath.row])
+        //print(itemArray[indexPath.row])
         
         if tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
             tableView.cellForRow(at: indexPath)?.accessoryType = .none
@@ -49,9 +51,12 @@ class TodoTableViewController: UITableViewController {
         let alert = UIAlertController(title: "Add items to your list", message: "", preferredStyle: .alert)
         let action = UIAlertAction(title: "Add item", style: .default) { (action) in
             
-            print(itemName.text!)
+            
             
             self.itemArray.append(itemName.text!)
+            
+            self.defaults.setValue(self.itemArray, forKey: "TodoListArray")
+            
             self.tableView.reloadData()
         }
         
